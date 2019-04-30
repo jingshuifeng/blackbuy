@@ -155,12 +155,12 @@
                 </div>
             </div>
         </div>
-        <div class="section">
+        <div class="section" v-for="(item, index) in shangpin" :key="index">
             <div class="main-tit">
-                <h2>手机数码</h2>
+                <h2>{{item.catetitle}}</h2>
                 <p>
-                    <a href="/goods/43.html">手机通讯</a>
-                    <a href="/goods/43.html">摄影摄像</a>
+                    <a href="/goods/43.html" v-for="(it, i) in item.level2catelist" :key="i">{{it.subcatetitle}}</a>
+                    
                     <a href="/goods/40.html">更多
                         <i>+</i>
                     </a>
@@ -169,19 +169,19 @@
             <div class="wrapper clearfix">
                 <div class="wrap-box">
                     <ul class="img-list">
-                        <li v-for="(item, index) in shangpin[0].datas" :key="index">
+                        <li v-for="(ie, e) in item.datas" :key="e">
                             <a href="#/site/goodsinfo/87" class="">
                                 <div class="img-box">
-                                    <img :src="item.img_url">
+                                    <img :src="ie.img_url">
                                 </div>
                                 <div class="info">
-                                    <h3>{{item.artTitle}}</h3>
+                                    <h3>{{ie.artTitle}}</h3>
                                     <p class="price">
-                                        <b>{{item.sell_price}}</b>元</p>
+                                        <b>{{ie.sell_price}}</b>元</p>
                                     <p>
-                                        <strong>库存 {{item.stock_quantity}}</strong>
+                                        <strong>库存 {{ie.stock_quantity}}</strong>
                                         <span>市场价：
-                                            <s>{{item.market_price}}</s>
+                                            <s>{{ie.market_price}}</s>
                                         </span>
                                     </p>
                                 </div>
@@ -192,115 +192,7 @@
                 </div>
             </div>
         </div>
-        <div class="section">
-            <div class="main-tit">
-                <h2>电脑办公</h2>
-                <p>
-                    <a href="/goods/43.html">电脑整机</a>
-                    <a href="/goods/43.html">外设产品</a>
-                    <a href="/goods/43.html">办公打印</a>
-                    <a href="/goods/40.html">更多
-                        <i>+</i>
-                    </a>
-                </p>
-            </div>
-            <div class="wrapper clearfix">
-                <div class="wrap-box">
-                    <ul class="img-list">
-                       <li v-for="(item, index) in shangpin[1].datas" :key="index">
-                            <a href="#/site/goodsinfo/87" class="">
-                                <div class="img-box">
-                                    <img :src="item.img_url">
-                                </div>
-                                <div class="info">
-                                    <h3>{{item.artTitle}}</h3>
-                                    <p class="price">
-                                        <b>{{item.sell_price}}</b>元</p>
-                                    <p>
-                                        <strong>库存 {{item.stock_quantity}}</strong>
-                                        <span>市场价：
-                                            <s>{{item.market_price}}</s>
-                                        </span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="main-tit">
-                <h2>影音娱乐</h2>
-                <p>
-                    <a href="/goods/43.html">平板电视</a>
-                    <a href="/goods/43.html">音响DVD</a>
-                    <a href="/goods/43.html">影音配件</a>
-                    <a href="/goods/40.html">更多
-                        <i>+</i>
-                    </a>
-                </p>
-            </div>
-            <div class="wrapper clearfix">
-                <div class="wrap-box">
-                    <ul class="img-list">
-                        <li v-for="(item, index) in shangpin[2].datas" :key="index">
-                            <a href="#/site/goodsinfo/87" class="">
-                                <div class="img-box">
-                                    <img :src="item.img_url">
-                                </div>
-                                <div class="info">
-                                    <h3>{{item.artTitle}}</h3>
-                                    <p class="price">
-                                        <b>{{item.sell_price}}</b>元</p>
-                                    <p>
-                                        <strong>库存 {{item.stock_quantity}}</strong>
-                                        <span>市场价：
-                                            <s>{{item.market_price}}</s>
-                                        </span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <div class="main-tit">
-                <h2>服装类</h2>
-                <p>
-                    <a href="/goods/43.html">男装</a>
-                    <a href="/goods/40.html">更多
-                        <i>+</i>
-                    </a>
-                </p>
-            </div>
-            <div class="wrapper clearfix">
-                <div class="wrap-box">
-                    <ul class="img-list">
-                        <li v-for="(item, index) in shangpin[3].datas" :key="index">
-                            <a href="#/site/goodsinfo/87" class="">
-                                <div class="img-box">
-                                    <img :src="item.img_url">
-                                </div>
-                                <div class="info">
-                                    <h3>{{item.artTitle}}</h3>
-                                    <p class="price">
-                                        <b>{{item.sell_price}}</b>元</p>
-                                    <p>
-                                        <strong>库存 {{item.stock_quantity}}</strong>
-                                        <span>市场价：
-                                            <s>{{item.market_price}}</s>
-                                        </span>
-                                    </p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        
     </div>
 
 </template>
