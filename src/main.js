@@ -4,13 +4,11 @@ import App from './App.vue'
 import '../src/assets/statics/site/css/style.css'
 Vue.config.productionTip = false
 
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
 
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
-
-
-import detail from "./components/detail.vue"
+import detail from './components/detail.vue'
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
@@ -19,30 +17,40 @@ Vue.use(VueRouter)
 // 可以从其他文件 import 进来
 import index from './components/index.vue'
 
-import vip from "./components/huiyuanzhongxin.vue"
-import vip1 from "./components/vip/vip1.vue"
-import vip2 from "./components/vip/vip2.vue"
-import vip3 from "./components/vip/vip3.vue"
+import vip from './components/huiyuanzhongxin.vue'
+import vip1 from './components/vip/vip1.vue'
+import vip2 from './components/vip/vip2.vue'
+import vip3 from './components/vip/vip3.vue'
 // 2. 定义路由
 
 const routes = [
+  { path: '/', redirect: '/index' },
   { path: '/index', component: index },
   { path: '/detail/:id', component: detail },
-  {path:'/vip',component:vip,
-children:[{
-  path:'vip1',component:vip1
-},{path:'vip2',component:vip2},{path:'vip3',component:vip3}]}
+  {
+    path: '/vip',
+    component: vip,
+    children: [
+      {
+        path: 'vip1',
+        component: vip1
+      },
+      { path: 'vip2', component: vip2 },
+      { path: 'vip3', component: vip3 }
+    ]
+  }
 ]
-
+import axios from 'axios'
+axios.defaults.baseURL='http://111.230.232.110:8899'
 // 3. 创建 router 实例，然后传 `routes` 配置
+Vue.prototype.$axios=axios
 
 const router = new VueRouter({
-  routes 
+  routes
 })
-
 
 // 现在，应用已经启动了！
 new Vue({
   router,
-  render: h => h(App),
+  render: h => h(App)
 }).$mount('#app')

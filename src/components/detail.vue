@@ -165,7 +165,7 @@
 </template>
 
 <script>
-import Axios from 'axios';
+
 import moment from 'moment'
 
 
@@ -188,11 +188,11 @@ export default {
     },
     methods:{
     open() {
-        Axios.post(`http://111.230.232.110:8899/site/validate/comment/post/goods/${this.$route.params.id}`,{"commenttxt":this.comment}).then(res=>{
+        this.$axios.post(`/site/validate/comment/post/goods/${this.$route.params.id}`,{"commenttxt":this.comment}).then(res=>{
             console.log(res);
             if(res.status==200){
                 this.comment=''
-                Axios.get(`http://111.230.232.110:8899/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=1&pageSize=3`).then(res=>{
+                this.$axios.get(`/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=1&pageSize=3`).then(res=>{
                     this.currentPage3=res.data.message.totalcount
                     this.message=res.data
                     })
@@ -206,7 +206,7 @@ export default {
     },
     handleCurrentChange(val) {
         console.log(`当前页: ${val}`);
-        Axios.get(`http://111.230.232.110:8899/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=${val}&pageSize=${this.currentPage2}`).then(res=>{
+        this.$axios.get(`/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=${val}&pageSize=${this.currentPage2}`).then(res=>{
             this.message=res.data})
     },
     changeHander(value){
@@ -217,17 +217,17 @@ export default {
             index=1;
             this.num2=1
             }
-        Axios.get(`http://111.230.232.110:8899/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=${index}&pageSize=${size}`).then(res=>{
+        this.$axios.get(`/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=${index}&pageSize=${size}`).then(res=>{
             this.message=res.data
         })
     }},
     created(){
-        Axios.get(`http://111.230.232.110:8899/site/goods/getgoodsinfo/${this.$route.params.id}`).then(res=>{
+        this.$axios.get(`/site/goods/getgoodsinfo/${this.$route.params.id}`).then(res=>{
             this.goodsinfo=res.data.message.goodsinfo
             this.hotgoodslist=res.data.message.hotgoodslist
             this.imglist=res.data.message.imglist
         })
-        Axios.get(`http://111.230.232.110:8899/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=1&pageSize=3`).then(res=>{
+        this.$axios.get(`/site/comment/getbypage/goods/${this.$route.params.id}?pageIndex=1&pageSize=3`).then(res=>{
             this.message=res.data
             this.num2=res.data.pageIndex
         })
