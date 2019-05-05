@@ -31,6 +31,7 @@ const routes = [
     path: '/vip',
     component: vip,
     children: [
+      {path:'',redirect:'vip1'},
       {
         path: 'vip1',
         component: vip1

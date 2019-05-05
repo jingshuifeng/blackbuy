@@ -79,10 +79,10 @@
               >
                 <ul>
                   <li>
-                    <a href="javascript:;" @click="showDesc=!showDesc" :class="{'selected':showDesc}">商品介绍</a>
+                    <a href="javascript:;" @click="showDesc=true" :class="{'selected':showDesc}">商品介绍</a>
                   </li>
                   <li>
-                    <a href="javascript:;" @click="showDesc=!showDesc" :class="{'selected':!showDesc}">商品评论</a>
+                    <a href="javascript:;" @click="showDesc=false" :class="{'selected':!showDesc}">商品评论</a>
                   </li>
                 </ul>
               </div>
@@ -107,15 +107,17 @@
                         <span class="Validform_checktip"></span>
                       </div>
                       <div class="subcon">
-                        <el-button :plain="true" @click="open">
+                        
                           <input
+                            @click="open"
+                            @keyup.enter="open"
                             id="btnSubmit"
                             name="submit"
                             type="submit"
                             value="提交评论"
                             class="submit"
                           >
-                        </el-button>
+                        
                         <span class="Validform_checktip"></span>
                       </div>
                     </div>
