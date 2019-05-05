@@ -233,11 +233,7 @@ export default {
         })
     },
     filters:{
-        changetime(value){
-            return moment(value).format('YYYY年MM月DD日')
-        },
         changenum(value){
-            
             return value-1
         }
     }

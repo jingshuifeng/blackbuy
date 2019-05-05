@@ -40,6 +40,10 @@ const routes = [
     ]
   }
 ]
+import moment from 'moment'
+Vue.filter('changetime', (value)=>{
+  return moment(value).format('YYYY年MM月DD日')
+})
 import axios from 'axios'
 axios.defaults.baseURL='http://111.230.232.110:8899'
 // 3. 创建 router 实例，然后传 `routes` 配置

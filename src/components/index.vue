@@ -222,11 +222,7 @@ export default {
             this.shangpin=res.data.message
         })
     },
-    filters:{
-        changetime(value){
-            return moment(value).format('YYYY年MM月DD日')
-        }
-    }
+   
 }
 </script>
 
