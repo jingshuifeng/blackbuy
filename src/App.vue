@@ -37,7 +37,7 @@
                 <div id="menu2" class="nav-box menuhd">
                     <ul>
                         <li class="index">
-                            <router-link to="index">
+                            <router-link to="/index">
                                 <span class="out" style="top: 0px;">首页</span>
                             </router-link>
                         </li>
@@ -57,9 +57,9 @@
                             </a>
                         </li>
                         <li class="down">
-                            <a href="#" class="">
+                            <router-link to="/vip/vip1">
                                 <span class="out" style="top: 0px;">会员权益</span>
-                            </a>
+                            </router-link>
                         </li>
                         <li class="goods">
                             <a href="" class="router-link-exact-active ">
